@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mesin Kopi FSA (Finite State Automata)
 
-## Getting Started
+Simulasi Finite State Automata pada Mesin Pembuat Minuman Kopi Otomatis menggunakan Next.js dan TypeScript.
 
-First, run the development server:
+## 📋 Deskripsi
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Aplikasi ini mensimulasikan cara kerja mesin kopi otomatis menggunakan konsep Finite State Automata (FSA). Pengguna dapat memilih jenis minuman, ukuran gelas, dan tambahan extra, lalu melihat bagaimana FSA memproses input tersebut melalui berbagai state hingga menghasilkan minuman yang diinginkan.
+
+## ✨ Fitur
+
+- **7 Jenis Minuman**: Kopi, Susu, Coklat, Kopi Susu, Kopi Coklat, Mocha, Susu Coklat
+- **3 Ukuran Gelas**: Small, Medium, Large
+- **4 Tambahan Extra**: Tambah Gula, Tambah Kopi, Tambah Susu, Tambah Coklat
+- **Visualisasi FSA**: Diagram state yang interaktif menampilkan transisi state secara real-time
+- **Process Log**: Log detail proses pembuatan minuman
+- **Grammar Rules**: Tampilan aturan grammar FSA
+
+## 🚀 Cara Menjalankan di Local
+
+### Prerequisites
+
+Pastikan Anda sudah menginstall:
+- [Node.js](https://nodejs.org/) (versi 18.x atau lebih baru)
+- npm, yarn, pnpm, atau bun
+
+### Langkah-langkah
+
+1. **Clone repository ini**
+   ```bash
+   git clone <repository-url>
+   cd coffe-fsa-simulator
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # atau
+   yarn install
+   # atau
+   pnpm install
+   ```
+
+3. **Jalankan development server**
+   ```bash
+   npm run dev
+   # atau
+   yarn dev
+   # atau
+   pnpm dev
+   ```
+
+4. **Buka browser**
+   
+   Akses [http://localhost:3000](http://localhost:3000) untuk melihat aplikasi.
+
+## 🏗️ Struktur Proyek
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout dengan HTML tags
+│   ├── page.tsx            # Main page (5 lines - simplified)
+│   └── globals.css         # Global styles
+└── components/
+    └── CoffeeMachine/
+        ├── index.tsx           # Main component
+        ├── types.ts            # TypeScript interfaces
+        ├── constants.ts        # Data constants (drinks, sizes, extras)
+        ├── useCoffeeMachine.ts # Custom hook untuk FSA logic
+        ├── DrinkSelection.tsx  # Drink selection UI
+        ├── SizeSelection.tsx   # Size selection UI
+        ├── ExtraSelection.tsx  # Extra selection UI
+        ├── DoneState.tsx       # Completion state UI
+        ├── StateInfo.tsx       # FSA state info display
+        ├── FSADiagram.tsx      # FSA visualization
+        ├── ProcessLog.tsx      # Process log display
+        └── GrammarRules.tsx    # Grammar rules display
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Cara Menggunakan
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Pilih Jenis Minuman** - Pilih salah satu dari 7 jenis minuman yang tersedia
+2. **Pilih Ukuran Gelas** - Pilih Small, Medium, atau Large
+3. **Tambah Extra (Opsional)** - Tambahkan hingga 3 extra ingredients
+4. **Proses Minuman** - Klik tombol "PROSES MINUMAN" untuk memulai
+5. **Lihat Hasil** - Tunggu hingga proses selesai dan minuman siap!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔧 Tech Stack
 
-## Learn More
+- **Framework**: [Next.js 16](https://nextjs.org/) dengan App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Font**: Geist Sans & Geist Mono
 
-To learn more about Next.js, take a look at the following resources:
+## 📚 Konsep FSA
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Aplikasi ini mengimplementasikan FSA dengan:
+- **V_T (Terminal Symbols)**: a-t (input symbols)
+- **V_N (Non-terminal Symbols)**: S, A-O (states)
+- **Start State**: S
+- **Final State**: FINAL
+- **Productions**: Aturan transisi state yang ditampilkan di aplikasi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 License
 
-## Deploy on Vercel
+This project is open source and available under the [MIT License](LICENSE).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions, issues, and feature requests are welcome!
+
+## 👨‍💻 Author
+
+Dibuat sebagai project pembelajaran Finite State Automata.
