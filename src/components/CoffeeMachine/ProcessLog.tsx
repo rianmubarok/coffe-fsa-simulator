@@ -7,7 +7,7 @@ interface ProcessLogProps {
 
 export const ProcessLog: React.FC<ProcessLogProps> = ({ logs }) => {
     return (
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white rounded-xl p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Log Proses</h2>
             <div className="bg-gray-900 text-green-400 p-4 rounded-lg h-64 overflow-y-auto font-mono text-sm">
                 {logs.length === 0 ? (

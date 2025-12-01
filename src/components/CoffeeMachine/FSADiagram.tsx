@@ -13,12 +13,12 @@ const getStateColor = (state: string, currentState: FSAState) => {
 
 export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
     return (
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white rounded-xl p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Diagram FSA</h2>
             <div className="bg-gray-50 p-6 rounded-lg overflow-x-auto">
                 <div className="flex flex-col items-center space-y-4 min-w-max">
                     {/* Start State */}
-                    <div className={`w-16 h-16 rounded-full ${getStateColor('S', currentState)} flex items-center justify-center text-white font-bold text-lg shadow-lg transition-all duration-300`}>
+                    <div className={`w-16 h-16 rounded-full ${getStateColor('S', currentState)} flex items-center justify-center text-white font-bold text-lg transition-all duration-300`}>
                         S
                     </div>
 
@@ -27,7 +27,7 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
                     {/* Drink States */}
                     <div className="flex gap-2">
                         {['A', 'B', 'C', 'D', 'E', 'F', 'G'].map(state => (
-                            <div key={state} className={`w-12 h-12 rounded-full ${getStateColor(state, currentState)} flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300`}>
+                            <div key={state} className={`w-12 h-12 rounded-full ${getStateColor(state, currentState)} flex items-center justify-center text-white font-bold transition-all duration-300`}>
                                 {state}
                             </div>
                         ))}
@@ -38,7 +38,7 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
                     {/* Size States */}
                     <div className="flex gap-4">
                         {['H', 'I', 'J'].map(state => (
-                            <div key={state} className={`w-12 h-12 rounded-full ${getStateColor(state, currentState)} flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300`}>
+                            <div key={state} className={`w-12 h-12 rounded-full ${getStateColor(state, currentState)} flex items-center justify-center text-white font-bold transition-all duration-300`}>
                                 {state}
                             </div>
                         ))}
@@ -49,7 +49,7 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
                     {/* Ingredient States */}
                     <div className="flex gap-4">
                         {['K', 'L', 'M', 'N'].map(state => (
-                            <div key={state} className={`w-12 h-12 rounded-full ${getStateColor(state, currentState)} flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300`}>
+                            <div key={state} className={`w-12 h-12 rounded-full ${getStateColor(state, currentState)} flex items-center justify-center text-white font-bold transition-all duration-300`}>
                                 {state}
                             </div>
                         ))}
@@ -58,14 +58,14 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
                     <div className="text-gray-400">↓ tambah air (o)</div>
 
                     {/* Water State */}
-                    <div className={`w-12 h-12 rounded-full ${getStateColor('O', currentState)} flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300`}>
+                    <div className={`w-12 h-12 rounded-full ${getStateColor('O', currentState)} flex items-center justify-center text-white font-bold transition-all duration-300`}>
                         O
                     </div>
 
                     <div className="text-gray-400">↓ aduk (p)</div>
 
                     {/* Final State */}
-                    <div className={`w-16 h-16 rounded-full ${getStateColor('FINAL', currentState)} flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300 border-4 border-white`}>
+                    <div className={`w-16 h-16 rounded-full ${getStateColor('FINAL', currentState)} flex items-center justify-center text-white font-bold transition-all duration-300 border-4 border-white`}>
                         ✓
                     </div>
                 </div>

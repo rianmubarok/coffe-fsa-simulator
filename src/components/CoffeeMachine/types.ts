@@ -3,12 +3,14 @@ export interface Drink {
     name: string;
     symbol: string;
     ingredients: string[];
+    icon: string;
 }
 
 export interface Size {
     id: string;
     name: string;
     symbol: string;
+    icon: string;
 }
 
 export interface Extra {
@@ -16,6 +18,7 @@ export interface Extra {
     name: string;
     symbol: string;
     base: string;
+    icon: string;
 }
 
 export interface ProcessLog {

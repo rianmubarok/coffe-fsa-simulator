@@ -15,10 +15,13 @@ export const DrinkSelection: React.FC<DrinkSelectionProps> = ({ drinks, onSelect
                     <button
                         key={drink.id}
                         onClick={() => onSelect(drink)}
-                        className="p-4 bg-amber-100 hover:bg-amber-200 rounded-lg transition-all transform hover:scale-105 text-left"
+                        className="p-4 bg-amber-100 hover:bg-amber-200 rounded-lg transition-all transform hover:scale-105 text-left cursor-pointer flex items-center gap-3"
                     >
-                        <div className="font-semibold text-amber-900">{drink.name}</div>
-                        <div className="text-xs text-amber-600">Symbol: {drink.symbol}</div>
+                        <div className="text-3xl">{drink.icon}</div>
+                        <div>
+                            <div className="font-semibold text-amber-900">{drink.name}</div>
+                            <div className="text-xs text-amber-600">Symbol: {drink.symbol}</div>
+                        </div>
                     </button>
                 ))}
             </div>

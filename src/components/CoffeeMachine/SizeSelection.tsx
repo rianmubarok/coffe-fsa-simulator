@@ -15,10 +15,13 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({ sizes, onSelect })
                     <button
                         key={size.id}
                         onClick={() => onSelect(size)}
-                        className="p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition-all transform hover:scale-105"
+                        className="p-4 bg-blue-100 hover:bg-blue-200 rounded-lg transition-all transform hover:scale-105 cursor-pointer flex items-center gap-3"
                     >
-                        <div className="font-semibold text-blue-900">{size.name}</div>
-                        <div className="text-xs text-blue-600">Symbol: {size.symbol}</div>
+                        <div className="text-3xl">{size.icon}</div>
+                        <div>
+                            <div className="font-semibold text-blue-900">{size.name}</div>
+                            <div className="text-xs text-blue-600">Symbol: {size.symbol}</div>
+                        </div>
                     </button>
                 ))}
             </div>

@@ -18,7 +18,7 @@ export const DoneState: React.FC<DoneStateProps> = ({ selectedDrink, selectedSiz
             </p>
             <button
                 onClick={onReset}
-                className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-bold flex items-center justify-center gap-2 mx-auto transition-all"
+                className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-bold flex items-center justify-center gap-2 mx-auto transition-all cursor-pointer"
             >
                 <RotateCcw className="w-5 h-5" />
                 Buat Minuman Lagi

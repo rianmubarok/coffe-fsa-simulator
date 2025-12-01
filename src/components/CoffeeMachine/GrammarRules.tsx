@@ -2,7 +2,7 @@ import React from 'react';
 
 export const GrammarRules: React.FC = () => {
     return (
-        <div className="mt-6 bg-white rounded-xl shadow-lg p-6">
+        <div className="mt-6 bg-white rounded-xl p-6">
             <h2 className="text-xl font-bold text-gray-800 mb-3">Aturan Grammar FSA</h2>
             <div className="bg-gray-50 p-4 rounded-lg font-mono text-xs overflow-x-auto">
                 <div className="text-gray-700 space-y-1">

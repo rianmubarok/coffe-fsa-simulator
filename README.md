@@ -27,7 +27,7 @@ Pastikan Anda sudah menginstall:
 
 1. **Clone repository ini**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/rianmubarok/coffe-fsa-simulator>
    cd coffe-fsa-simulator
    ```
 

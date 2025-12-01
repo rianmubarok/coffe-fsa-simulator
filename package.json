@@ -1,5 +1,5 @@
 {
-  "name": "coffee-fsa-app",
+  "name": "coffee-fsa-simulator",
   "version": "0.1.0",
   "private": true,
   "scripts": {

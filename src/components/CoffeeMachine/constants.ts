@@ -1,26 +1,26 @@
 import { Drink, Size, Extra, StateMap } from './types';
 
 export const drinks: Drink[] = [
-    { id: 'a', name: 'Kopi', symbol: 'a', ingredients: ['kopi'] },
-    { id: 'b', name: 'Susu', symbol: 'b', ingredients: ['susu'] },
-    { id: 'c', name: 'Coklat', symbol: 'c', ingredients: ['coklat'] },
-    { id: 'd', name: 'Kopi Susu', symbol: 'd', ingredients: ['kopi', 'susu'] },
-    { id: 'e', name: 'Kopi Coklat', symbol: 'e', ingredients: ['kopi', 'coklat'] },
-    { id: 'f', name: 'Mocha', symbol: 'f', ingredients: ['kopi', 'susu', 'coklat'] },
-    { id: 'g', name: 'Susu Coklat', symbol: 'g', ingredients: ['susu', 'coklat'] }
+    { id: 'a', name: 'Kopi', symbol: 'a', ingredients: ['kopi'], icon: '☕' },
+    { id: 'b', name: 'Susu', symbol: 'b', ingredients: ['susu'], icon: '🥛' },
+    { id: 'c', name: 'Coklat', symbol: 'c', ingredients: ['coklat'], icon: '🍫' },
+    { id: 'd', name: 'Kopi Susu', symbol: 'd', ingredients: ['kopi', 'susu'], icon: '☕🥛' },
+    { id: 'e', name: 'Kopi Coklat', symbol: 'e', ingredients: ['kopi', 'coklat'], icon: '☕🍫' },
+    { id: 'f', name: 'Mocha', symbol: 'f', ingredients: ['kopi', 'susu', 'coklat'], icon: '☕🥛🍫' },
+    { id: 'g', name: 'Susu Coklat', symbol: 'g', ingredients: ['susu', 'coklat'], icon: '🥛🍫' }
 ];
 
 export const sizes: Size[] = [
-    { id: 'h', name: 'Small', symbol: 'h' },
-    { id: 'i', name: 'Medium', symbol: 'i' },
-    { id: 'j', name: 'Large', symbol: 'j' }
+    { id: 'h', name: 'Small', symbol: 'h', icon: '🥤' },
+    { id: 'i', name: 'Medium', symbol: 'i', icon: '🥤' },
+    { id: 'j', name: 'Large', symbol: 'j', icon: '🥤' }
 ];
 
 export const extraOptions: Extra[] = [
-    { id: 'q', name: 'Tambah Gula', symbol: 'q', base: 'k' },
-    { id: 'r', name: 'Tambah Kopi', symbol: 'r', base: 'l' },
-    { id: 's', name: 'Tambah Susu', symbol: 's', base: 'm' },
-    { id: 't', name: 'Tambah Coklat', symbol: 't', base: 'n' }
+    { id: 'q', name: 'Tambah Gula', symbol: 'q', base: 'k', icon: '🍬' },
+    { id: 'r', name: 'Tambah Kopi', symbol: 'r', base: 'l', icon: '☕' },
+    { id: 's', name: 'Tambah Susu', symbol: 's', base: 'm', icon: '🥛' },
+    { id: 't', name: 'Tambah Coklat', symbol: 't', base: 'n', icon: '🍫' }
 ];
 
 export const stateMap: StateMap = {
