@@ -30,21 +30,21 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
     }, []);
 
     // Definisi posisi yang lebih compact lagi (skala ~0.7x dari original)
-    // Digeser X +100 agar centered di container 800px (Center = 400)
+    // Digeser X +200 agar centered di container 1000px (Center = 500)
     const positions = {
-        S: { x: 400, y: 30 },
-        drinks: ['A', 'B', 'C', 'D', 'E', 'F', 'G'].map((id, i) => ({ id, x: 160 + i * 80, y: 130 })),
-        sizes: ['H', 'I', 'J'].map((id, i) => ({ id, x: 300 + i * 100, y: 240 })),
-        ingredients: ['K', 'L', 'M', 'N'].map((id, i) => ({ id, x: 265 + i * 90, y: 350 })),
-        O: { x: 400, y: 460 },
-        FINAL: { x: 400, y: 550 }
+        S: { x: 500, y: 30 },
+        drinks: ['A', 'B', 'C', 'D', 'E', 'F', 'G'].map((id, i) => ({ id, x: 260 + i * 80, y: 130 })),
+        sizes: ['H', 'I', 'J'].map((id, i) => ({ id, x: 400 + i * 100, y: 240 })),
+        ingredients: ['K', 'L', 'M', 'N'].map((id, i) => ({ id, x: 365 + i * 90, y: 350 })),
+        O: { x: 500, y: 460 },
+        FINAL: { x: 500, y: 550 }
     };
 
     return (
         <div className="bg-white rounded-xl p-4 shadow-lg">
             <h2 className="text-lg font-bold text-gray-800 mb-2">Diagram FSA</h2>
             <div ref={scrollRef} className="bg-white p-2 rounded-lg overflow-x-auto border border-gray-200">
-                <div className="relative min-w-[800px] w-[800px] mx-auto h-[600px]">
+                <div className="relative min-w-[1000px] w-[1000px] mx-auto h-[600px]">
 
                     {/* Layer SVG untuk Garis Koneksi */}
                     <svg className="absolute top-0 left-0 w-full h-full pointer-events-none">
@@ -185,15 +185,15 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
                         {/* Koneksi FINAL -> S (Reset Loop) */}
                         <g>
                             <path
-                                d={`M ${positions.FINAL.x + 25} ${positions.FINAL.y} C ${positions.FINAL.x + 350} ${positions.FINAL.y}, ${positions.S.x + 350} ${positions.S.y}, ${positions.S.x + 25} ${positions.S.y}`}
+                                d={`M ${positions.FINAL.x + 30} ${positions.FINAL.y} C ${positions.FINAL.x + 320} ${positions.FINAL.y}, ${positions.S.x + 320} ${positions.S.y}, ${positions.S.x + 30} ${positions.S.y}`}
                                 fill="none"
                                 stroke="#000"
                                 strokeWidth="1.2"
                                 strokeDasharray="6 3"
                                 markerEnd="url(#arrowhead)"
                             />
-                            <rect x={positions.FINAL.x + 240} y={290} width="30" height="14" rx="2" fill="white" stroke="#e5e7eb" />
-                            <text x={positions.FINAL.x + 255} y={300} textAnchor="middle" fontSize="8" fill="#4b5563" fontWeight="bold">
+                            <rect x={positions.FINAL.x + 230} y={290} width="30" height="14" rx="2" fill="white" stroke="#e5e7eb" />
+                            <text x={positions.FINAL.x + 245} y={300} textAnchor="middle" fontSize="8" fill="#4b5563" fontWeight="bold">
                                 reset
                             </text>
                         </g>
