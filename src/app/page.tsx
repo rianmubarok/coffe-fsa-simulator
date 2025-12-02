@@ -1,4 +1,4 @@
-import { CoffeeMachine } from '@/components/CoffeeMachine';
+import { CoffeeMachine } from '@/components';
 
 export default function Home() {
   return <CoffeeMachine />;

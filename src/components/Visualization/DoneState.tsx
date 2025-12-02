@@ -1,6 +1,6 @@
 import React from 'react';
 import { RotateCcw } from 'lucide-react';
-import { Drink, Size } from './types';
+import { Drink, Size } from '../data/types';
 
 interface DoneStateProps {
     selectedDrink: Drink | null;

@@ -2,16 +2,16 @@
 
 import React from 'react';
 import { Coffee, Zap } from 'lucide-react';
-import { useCoffeeMachine } from './useCoffeeMachine';
-import { drinks, sizes, extraOptions } from './constants';
-import { DrinkSelection } from './DrinkSelection';
-import { SizeSelection } from './SizeSelection';
-import { ExtraSelection } from './ExtraSelection';
-import { DoneState } from './DoneState';
-import { StateInfo } from './StateInfo';
-import { FSADiagram } from './FSADiagram';
-import { ProcessLog } from './ProcessLog';
-import { GrammarRules } from './GrammarRules';
+import { useCoffeeMachine } from './hooks/useCoffeeMachine';
+import { drinks, sizes, extraOptions } from './data/constants';
+import { DrinkSelection } from './Selection/DrinkSelection';
+import { SizeSelection } from './Selection/SizeSelection';
+import { ExtraSelection } from './Selection/ExtraSelection';
+import { DoneState } from './Visualization/DoneState';
+import { StateInfo } from './Visualization/StateInfo';
+import { FSADiagram } from './Visualization/FSADiagram';
+import { ProcessLog } from './Visualization/ProcessLog';
+import { GrammarRules } from './Visualization/GrammarRules';
 
 export const CoffeeMachine: React.FC = () => {
     const {
@@ -45,7 +45,7 @@ export const CoffeeMachine: React.FC = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Control Panel */}
-                    <div className="bg-white rounded-xl shadow-lg p-6">
+                    <div className="bg-white rounded-xl p-6">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                             <Zap className="w-6 h-6" />
                             Panel Kontrol

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Play } from 'lucide-react';
-import { Extra } from './types';
+import { Extra } from '../data/types';
 
 interface ExtraSelectionProps {
     extraOptions: Extra[];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProcessLog as ProcessLogType } from './types';
+import { ProcessLog as ProcessLogType } from '../data/types';
 
 interface ProcessLogProps {
     logs: ProcessLogType[];

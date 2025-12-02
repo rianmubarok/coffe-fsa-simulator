@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Drink, Size, Extra, ProcessLog, Step, FSAState } from './types';
-import { drinks, sizes } from './constants';
+import { Drink, Size, Extra, ProcessLog, Step, FSAState } from '../data/types';
+import { drinks, sizes } from '../data/constants';
 
 export const useCoffeeMachine = () => {
     const [currentState, setCurrentState] = useState<FSAState>('S');

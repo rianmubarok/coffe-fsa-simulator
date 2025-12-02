@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drink } from './types';
+import { Drink } from '../data/types';
 
 interface DrinkSelectionProps {
     drinks: Drink[];

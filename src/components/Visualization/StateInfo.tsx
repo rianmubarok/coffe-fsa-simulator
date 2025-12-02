@@ -1,5 +1,5 @@
 import React from 'react';
-import { FSAState } from './types';
+import { FSAState } from '../data/types';
 
 interface StateInfoProps {
     currentState: FSAState;
