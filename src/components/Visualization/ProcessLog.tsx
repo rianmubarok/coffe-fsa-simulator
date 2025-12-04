@@ -9,7 +9,7 @@ export const ProcessLog: React.FC<ProcessLogProps> = ({ logs }) => {
   return (
     <div>
       <h2 className="text-black mb-4">Log Proses</h2>
-      <div className="bg-gray-900 text-gray-500 p-4 rounded-lg h-64 overflow-y-auto font-mono text-sm">
+      <div className="bg-gray-900 text-amber-100 p-4 rounded-lg h-64 overflow-y-auto font-mono text-sm">
         {logs.length === 0 ? (
           <div className="text-gray-500">Menunggu input...</div>
         ) : (

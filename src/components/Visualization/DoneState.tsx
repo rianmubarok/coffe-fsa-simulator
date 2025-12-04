@@ -24,9 +24,7 @@ export const DoneState: React.FC<DoneStateProps> = ({
           className="object-contain"
         />
       </div>
-      <h3 className="text-2xl font-bold text-green-600 mb-4">
-        Minuman Selesai!
-      </h3>
+      <h3 className="text-3xl text-black mb-4">Minuman Selesai!</h3>
       <p className="text-gray-700 mb-4">
         {selectedDrink?.name} {selectedSize?.name} siap dinikmati
       </p>
