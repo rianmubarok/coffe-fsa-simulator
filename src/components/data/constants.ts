@@ -41,7 +41,6 @@ export const sizes: Size[] = [
 ];
 
 export const extraOptions: Extra[] = [
-  { id: "q", name: "Tambah Gula", symbol: "q", base: "k", icon: "🍬" },
   { id: "r", name: "Tambah Kopi", symbol: "r", base: "l", icon: "☕" },
   { id: "s", name: "Tambah Susu", symbol: "s", base: "m", icon: "🥛" },
   { id: "t", name: "Tambah Coklat", symbol: "t", base: "n", icon: "🍫" },
@@ -59,9 +58,9 @@ export const stateMap: StateMap = {
   H: ["K", "S"],
   I: ["K", "S"],
   J: ["K", "S"],
-  K: ["K", "L", "M", "N", "S"],
-  L: ["L", "M", "N", "O", "S"],
-  M: ["M", "N", "O", "S"],
-  N: ["N", "O", "S"],
+  K: ["K", "L", "M", "N", "O", "S"],
+  L: ["K", "L", "M", "N", "O", "S"],
+  M: ["K", "L", "M", "N", "O", "S"],
+  N: ["K", "L", "M", "N", "O", "S"],
   O: ["FINAL", "S"],
 };

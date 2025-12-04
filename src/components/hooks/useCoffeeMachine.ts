@@ -63,7 +63,8 @@ export const useCoffeeMachine = () => {
         const targetState = targetStateMap[extra.base];
         if (!targetState) return;
 
-        let inputChar = '';
+        // ALWAYS use the extra's symbol for the input sequence
+        const inputChar = extra.symbol;
         let nextState = currentState;
 
         // Logic:
@@ -71,13 +72,11 @@ export const useCoffeeMachine = () => {
         // If current state != target state -> Transition (use extra.base: l, m, n) IF valid
 
         if (currentState === targetState) {
-            inputChar = extra.symbol;
             // State remains same
         } else {
             // Check if transition is valid
             const validTransitions = stateMap[currentState];
             if (validTransitions && validTransitions.includes(targetState)) {
-                inputChar = extra.base;
                 nextState = targetState;
             } else {
                 addLog(`❌ Tidak bisa menambahkan ${extra.name} setelah posisi saat ini (${currentState})`);
@@ -138,7 +137,7 @@ export const useCoffeeMachine = () => {
         const resetSeq = [...inputSequence, '0'];
         setInputSequence(resetSeq);
         setGrammar(prev => prev + '0');
-        
+
         setCurrentState('S');
         setSelectedDrink(null);
         setSelectedSize(null);
