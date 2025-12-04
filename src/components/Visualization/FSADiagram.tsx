@@ -26,44 +26,27 @@ const stateLabels: Record<string, string> = {
   FINAL: "Final\n(Aduk)",
 };
 
-// Warna sesuai referensi
+// Warna putih dengan border hitam untuk semua state
 const getStateStyle = (state: string, currentState: FSAState) => {
   const isActive = state === currentState;
   const isFinal = state === "FINAL";
   const isStart = state === "S";
 
-  // Base colors sesuai referensi
-  let bgColor = "";
-  let textColor = "text-gray-800";
+  // Semua state menggunakan bg putih
+  const bgColor = "bg-white";
+  const textColor = "text-gray-800";
+
+  // Border hitam untuk semua state
   let borderStyle = "";
 
-  if (isStart) {
-    bgColor = isActive ? "bg-green-400" : "bg-green-200";
-    borderStyle = "border-4 border-green-600";
-  } else if (isFinal) {
-    bgColor = isActive ? "bg-yellow-400" : "bg-yellow-200";
-    borderStyle = "border-4 border-yellow-600";
-  } else if (["A", "B", "C", "D", "E", "F", "G"].includes(state)) {
-    bgColor = isActive ? "bg-yellow-300" : "bg-yellow-100";
-  } else if (["H", "I", "J"].includes(state)) {
-    bgColor = isActive ? "bg-cyan-300" : "bg-cyan-100";
-  } else if (state === "K") {
-    bgColor = isActive ? "bg-pink-300" : "bg-pink-100";
-  } else if (state === "L") {
-    bgColor = isActive ? "bg-amber-800" : "bg-amber-600";
-    textColor = "text-white";
-  } else if (state === "M") {
-    bgColor = isActive ? "bg-amber-100" : "bg-amber-50";
-  } else if (state === "N") {
-    bgColor = isActive ? "bg-amber-900" : "bg-amber-700";
-    textColor = "text-white";
-  } else if (state === "O") {
-    bgColor = isActive ? "bg-blue-300" : "bg-blue-100";
-  }
-
-  // Highlight active state
-  if (isActive && !isStart && !isFinal) {
-    borderStyle = "ring-4 ring-blue-400";
+  if (isStart || isFinal) {
+    // Start dan Final state menggunakan double border
+    borderStyle = "border-2 border-black";
+  } else {
+    // State biasa menggunakan border hitam
+    borderStyle = isActive
+      ? "border-4 border-black ring-2 ring-blue-500"
+      : "border-2 border-black";
   }
 
   return `${bgColor} ${textColor} ${borderStyle}`;
@@ -71,9 +54,9 @@ const getStateStyle = (state: string, currentState: FSAState) => {
 
 export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
   return (
-    <div className="bg-white rounded-xl p-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Diagram FSA</h2>
-      <div className="bg-gray-50 p-6 rounded-lg overflow-x-auto">
+    <div>
+      <h3 className="text-black mb-3">Diagram FSA</h3>
+      <div className="bg-white p-6 rounded-lg overflow-x-auto">
         <div className="flex flex-col items-center space-y-4 min-w-max">
           {/* Start State - Double Circle */}
           <div
@@ -82,8 +65,8 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
               currentState
             )} flex flex-col items-center justify-center font-bold text-sm transition-all duration-300 relative`}
           >
-            <div className="absolute inset-0 rounded-full border-4 border-gray-800"></div>
-            <div className="absolute inset-2 rounded-full border-2 border-gray-800"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-black"></div>
+            <div className="absolute inset-2 rounded-full border-2 border-black"></div>
             <div className="relative z-10 text-center leading-tight">
               {stateLabels["S"]}
             </div>
@@ -179,20 +162,13 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
               currentState
             )} flex flex-col items-center justify-center font-bold text-sm transition-all duration-300 relative`}
           >
-            <div className="absolute inset-0 rounded-full border-4 border-gray-800"></div>
-            <div className="absolute inset-2 rounded-full border-2 border-gray-800"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-black"></div>
+            <div className="absolute inset-2 rounded-full border-2 border-black"></div>
             <div className="relative z-10 text-center leading-tight">
               {stateLabels["FINAL"]}
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="mt-4 text-xs text-gray-600 bg-blue-50 p-3 rounded">
-        <strong>Keterangan:</strong> State hijau = Start, State kuning = Final,
-        State kuning muda = Minuman, State cyan = Ukuran, State pink = Gula,
-        State coklat = Kopi, State krem = Susu, State coklat tua = Coklat, State
-        biru = Air. State yang aktif memiliki ring biru.
       </div>
     </div>
   );
