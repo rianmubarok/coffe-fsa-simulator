@@ -1,17 +1,19 @@
 import React from "react";
 import { RotateCcw } from "lucide-react";
-import { Drink, Size } from "../data/types";
+import { Drink, Size, Extra } from "../data/types";
 import Image from "next/image";
 
 interface DoneStateProps {
   selectedDrink: Drink | null;
   selectedSize: Size | null;
+  extras: Extra[];
   onReset: () => void;
 }
 
 export const DoneState: React.FC<DoneStateProps> = ({
   selectedDrink,
   selectedSize,
+  extras,
   onReset,
 }) => {
   return (
@@ -26,7 +28,23 @@ export const DoneState: React.FC<DoneStateProps> = ({
       </div>
       <h3 className="text-3xl text-black mb-4 font-playfair italic">Minuman Selesai!</h3>
       <p className="text-gray-700 mb-4">
-        {selectedDrink?.name} {selectedSize?.name} siap dinikmati
+        {selectedDrink?.name} {selectedSize?.name}
+        {extras && extras.length > 0 && (
+          <span>
+            {" "}
+            dengan extra{" "}
+            {Object.entries(
+              extras.reduce((acc, extra) => {
+                const name = extra.name.replace("Tambah ", "");
+                acc[name] = (acc[name] || 0) + 1;
+                return acc;
+              }, {} as Record<string, number>)
+            )
+              .map(([name, count]) => (count > 1 ? `${name} ${count}x` : name))
+              .join(", ")}
+          </span>
+        )}
+        {" "}siap dinikmati
       </p>
       <button
         onClick={onReset}

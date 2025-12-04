@@ -93,6 +93,7 @@ export const CoffeeMachine: React.FC = () => {
               <DoneState
                 selectedDrink={selectedDrink}
                 selectedSize={selectedSize}
+                extras={extras}
                 onReset={handleReset}
               />
             )}
