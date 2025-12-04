@@ -19,8 +19,8 @@ export const useCoffeeMachine = () => {
 
     const handleDrinkSelect = (drink: Drink) => {
         setSelectedDrink(drink);
-        setInputSequence([drink.symbol]);
-        setGrammar(drink.symbol);
+        setInputSequence(['s', drink.symbol]);
+        setGrammar('s' + drink.symbol);
         setCurrentState(String.fromCharCode(65 + drinks.findIndex(d => d.id === drink.id)) as FSAState);
         setStep('size');
         addLog(`Memilih minuman: ${drink.name}`);
