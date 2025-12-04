@@ -32,15 +32,14 @@ export const CoffeeMachine: React.FC = () => {
     } = useCoffeeMachine();
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 p-6">
+        <div className="min-h-screen bg-[#49426c] p-6">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-8">
                     <div className="flex items-center justify-center gap-3 mb-2">
-                        <Coffee className="w-10 h-10 text-amber-700" />
-                        <h1 className="text-4xl font-bold text-amber-900">Mesin Kopi FSA</h1>
+                        <h1 className="text-4xl font-bold text-white">Mesin Kopi FSA</h1>
                     </div>
-                    <p className="text-amber-700">Simulasi Finite State Automata pada Mesin Pembuat Minuman Kopi Otomatis</p>
+                    <p className="text-white">Simulasi Finite State Automata pada Mesin Pembuat Minuman Kopi Otomatis</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -53,12 +52,20 @@ export const CoffeeMachine: React.FC = () => {
 
                         {/* Drink Selection */}
                         {step === 'drink' && (
-                            <DrinkSelection drinks={drinks} onSelect={handleDrinkSelect} />
+                            <DrinkSelection 
+                                drinks={drinks} 
+                                onSelect={handleDrinkSelect}
+                                onReset={currentState !== 'S' ? handleReset : undefined}
+                            />
                         )}
 
                         {/* Size Selection */}
                         {step === 'size' && (
-                            <SizeSelection sizes={sizes} onSelect={handleSizeSelect} />
+                            <SizeSelection 
+                                sizes={sizes} 
+                                onSelect={handleSizeSelect}
+                                onReset={currentState !== 'S' ? handleReset : undefined}
+                            />
                         )}
 
                         {/* Extras */}
@@ -69,6 +76,7 @@ export const CoffeeMachine: React.FC = () => {
                                 onExtraAdd={handleExtraAdd}
                                 onProcess={handleProcess}
                                 isProcessing={isProcessing}
+                                onReset={currentState !== 'S' ? handleReset : undefined}
                             />
                         )}
 

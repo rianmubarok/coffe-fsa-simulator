@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Drink, Size, Extra, ProcessLog, Step, FSAState } from '../data/types';
-import { drinks, sizes } from '../data/constants';
+import { drinks, sizes, stateMap } from '../data/constants';
 
 export const useCoffeeMachine = () => {
     const [currentState, setCurrentState] = useState<FSAState>('S');
@@ -46,30 +46,64 @@ export const useCoffeeMachine = () => {
     };
 
     const handleExtraAdd = (extra: Extra) => {
-        if (extras.length >= 3) {
-            addLog('Maksimal 3 tambahan extra!');
+        // Allow more extras to test loops (e.g. K->K->K)
+        if (extras.length >= 10) {
+            addLog('Maksimal 10 tambahan extra!');
             return;
+        }
+
+        // Determine target state for this extra
+        const targetStateMap: Record<string, FSAState> = {
+            'k': 'K', // Gula
+            'l': 'L', // Kopi
+            'm': 'M', // Susu
+            'n': 'N'  // Coklat
+        };
+
+        const targetState = targetStateMap[extra.base];
+        if (!targetState) return;
+
+        let inputChar = '';
+        let nextState = currentState;
+
+        // Logic:
+        // If current state == target state -> Self loop (use extra.symbol: q, r, s, t)
+        // If current state != target state -> Transition (use extra.base: l, m, n) IF valid
+
+        if (currentState === targetState) {
+            inputChar = extra.symbol;
+            // State remains same
+        } else {
+            // Check if transition is valid
+            const validTransitions = stateMap[currentState];
+            if (validTransitions && validTransitions.includes(targetState)) {
+                inputChar = extra.base;
+                nextState = targetState;
+            } else {
+                addLog(`❌ Tidak bisa menambahkan ${extra.name} setelah posisi saat ini (${currentState})`);
+                return;
+            }
         }
 
         const newExtras = [...extras, extra];
         setExtras(newExtras);
 
-        const newSeq = [...inputSequence, extra.base, extra.symbol];
+        const newSeq = [...inputSequence, inputChar];
         setInputSequence(newSeq);
-        setGrammar(prev => prev + extra.base + extra.symbol);
-
-        // Update state based on ingredient
-        const stateTransition: Record<string, FSAState> = {
-            'l': 'L', 'r': 'L',
-            'm': 'M', 's': 'M',
-            'n': 'N', 't': 'N'
-        };
-        setCurrentState(stateTransition[extra.base] || currentState);
+        setGrammar(prev => prev + inputChar);
+        setCurrentState(nextState);
 
         addLog(`Menambahkan: ${extra.name}`);
     };
 
     const handleProcess = async () => {
+        // Validate transition to 'O' (Air)
+        const validTransitions = stateMap[currentState];
+        if (!validTransitions || !validTransitions.includes('O')) {
+            addLog('❌ Belum ada bahan utama (Kopi/Susu/Coklat)!');
+            return;
+        }
+
         setIsProcessing(true);
         setStep('processing');
         addLog('--- MEMULAI PROSES PEMBUATAN ---');
@@ -99,10 +133,13 @@ export const useCoffeeMachine = () => {
     };
 
     const handleReset = () => {
+        // Tambahkan log dan input "0" sesuai diagram FSA
+        addLog('0 (reset) - Kembali ke state Start');
+        const resetSeq = [...inputSequence, '0'];
+        setInputSequence(resetSeq);
+        setGrammar(prev => prev + '0');
+        
         setCurrentState('S');
-        setInputSequence([]);
-        setGrammar('');
-        setProcessLog([]);
         setSelectedDrink(null);
         setSelectedSize(null);
         setExtras([]);

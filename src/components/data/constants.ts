@@ -6,14 +6,14 @@ export const drinks: Drink[] = [
     { id: 'c', name: 'Coklat', symbol: 'c', ingredients: ['coklat'], icon: '🍫' },
     { id: 'd', name: 'Kopi Susu', symbol: 'd', ingredients: ['kopi', 'susu'], icon: '☕🥛' },
     { id: 'e', name: 'Kopi Coklat', symbol: 'e', ingredients: ['kopi', 'coklat'], icon: '☕🍫' },
-    { id: 'f', name: 'Mocha', symbol: 'f', ingredients: ['kopi', 'susu', 'coklat'], icon: '☕🥛🍫' },
+    { id: 'f', name: 'Mocca', symbol: 'f', ingredients: ['kopi', 'susu', 'coklat'], icon: '☕🥛🍫' },
     { id: 'g', name: 'Susu Coklat', symbol: 'g', ingredients: ['susu', 'coklat'], icon: '🥛🍫' }
 ];
 
 export const sizes: Size[] = [
-    { id: 'h', name: 'Small', symbol: 'h', icon: '🥤' },
-    { id: 'i', name: 'Medium', symbol: 'i', icon: '🥤' },
-    { id: 'j', name: 'Large', symbol: 'j', icon: '🥤' }
+    { id: 'h', name: 'Gelas S', symbol: 'h', icon: '🥤' },
+    { id: 'i', name: 'Gelas M', symbol: 'i', icon: '🥤' },
+    { id: 'j', name: 'Gelas L', symbol: 'j', icon: '🥤' }
 ];
 
 export const extraOptions: Extra[] = [
