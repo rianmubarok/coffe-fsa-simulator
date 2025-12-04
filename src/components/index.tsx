@@ -12,6 +12,7 @@ import { StateInfo } from "./Visualization/StateInfo";
 import { FSADiagram } from "./Visualization/FSADiagram";
 import { ProcessLog } from "./Visualization/ProcessLog";
 import { GrammarRules } from "./Visualization/GrammarRules";
+import { ConfirmationSelection } from "./Selection/ConfirmationSelection";
 
 export const CoffeeMachine: React.FC = () => {
   const {
@@ -27,7 +28,8 @@ export const CoffeeMachine: React.FC = () => {
     handleDrinkSelect,
     handleSizeSelect,
     handleExtraAdd,
-    handleProcess,
+    handleAddWater,
+    handleFinalize,
     handleReset,
   } = useCoffeeMachine();
 
@@ -69,9 +71,20 @@ export const CoffeeMachine: React.FC = () => {
                 extraOptions={extraOptions}
                 extras={extras}
                 onExtraAdd={handleExtraAdd}
-                onProcess={handleProcess}
+                onAddWater={handleAddWater}
                 isProcessing={isProcessing}
                 onReset={currentState !== "S" ? handleReset : undefined}
+              />
+            )}
+
+            {/* Confirmation State */}
+            {step === "confirmation" && (
+              <ConfirmationSelection
+                selectedDrink={selectedDrink}
+                selectedSize={selectedSize}
+                extras={extras}
+                onFinalize={handleFinalize}
+                onReset={handleReset}
               />
             )}
 

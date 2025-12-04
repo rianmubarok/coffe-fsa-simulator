@@ -32,7 +32,7 @@ export const GrammarRules: React.FC = () => {
           <div>L → rL | mM | nN | oO | S</div>
           <div>M → sM | nN | oO | S</div>
           <div>N → tN | oO | S</div>
-          <div>O → p | S</div>
+          <div>O → p</div>
         </div>
       </div>
     </div>

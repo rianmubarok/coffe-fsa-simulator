@@ -95,7 +95,7 @@ export const useCoffeeMachine = () => {
         addLog(`Menambahkan: ${extra.name}`);
     };
 
-    const handleProcess = async () => {
+    const handleAddWater = async () => {
         // Validate transition to 'O' (Air)
         const validTransitions = stateMap[currentState];
         if (!validTransitions || !validTransitions.includes('O')) {
@@ -114,10 +114,18 @@ export const useCoffeeMachine = () => {
         setCurrentState('O');
         addLog('Menambahkan air panas');
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // await new Promise(resolve => setTimeout(resolve, 1000));
+
+        setIsProcessing(false);
+        setStep('confirmation');
+    };
+
+    const handleFinalize = async () => {
+        setIsProcessing(true);
+        setStep('processing');
 
         // Stir and finalize (p)
-        const finalSeq = [...withWater, 'p'];
+        const finalSeq = [...inputSequence, 'p'];
         setInputSequence(finalSeq);
         setGrammar(prev => prev + 'p');
         setCurrentState('FINAL');
@@ -159,7 +167,8 @@ export const useCoffeeMachine = () => {
         handleDrinkSelect,
         handleSizeSelect,
         handleExtraAdd,
-        handleProcess,
+        handleAddWater,
+        handleFinalize,
         handleReset
     };
 };

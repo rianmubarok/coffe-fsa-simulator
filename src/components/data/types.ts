@@ -26,7 +26,7 @@ export interface ProcessLog {
     message: string;
 }
 
-export type Step = 'drink' | 'size' | 'extras' | 'processing' | 'done';
+export type Step = 'drink' | 'size' | 'extras' | 'processing' | 'confirmation' | 'done';
 
 export type FSAState = 'S' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' |
     'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'FINAL';

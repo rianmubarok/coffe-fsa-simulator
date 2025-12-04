@@ -1,5 +1,5 @@
 import React from "react";
-import { Play, RotateCcw } from "lucide-react";
+import { Play, RotateCcw, ArrowRight } from "lucide-react";
 import { Extra } from "../data/types";
 import Image from "next/image";
 
@@ -7,7 +7,7 @@ interface ExtraSelectionProps {
   extraOptions: Extra[];
   extras: Extra[];
   onExtraAdd: (extra: Extra) => void;
-  onProcess: () => void;
+  onAddWater: () => void;
   isProcessing: boolean;
   onReset?: () => void;
 }
@@ -27,7 +27,7 @@ export const ExtraSelection: React.FC<ExtraSelectionProps> = ({
   extraOptions,
   extras,
   onExtraAdd,
-  onProcess,
+  onAddWater,
   isProcessing,
   onReset,
 }) => {
@@ -67,12 +67,12 @@ export const ExtraSelection: React.FC<ExtraSelectionProps> = ({
       </div>
       <div className="space-y-3">
         <button
-          onClick={onProcess}
+          onClick={onAddWater}
           disabled={isProcessing}
-          className="w-full p-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all transform disabled:opacity-50 cursor-pointer"
+          className="w-full p-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all transform disabled:opacity-50 cursor-pointer"
         >
-          <Play className="w-5 h-5" />
-          PROSES MINUMAN
+          <ArrowRight className="w-5 h-5" />
+          Lanjut (O)
         </button>
         {onReset && (
           <button
