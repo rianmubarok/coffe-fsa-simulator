@@ -44,10 +44,10 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({
             </div>
 
             <div>
-              <div className="text-black text-3xl tracking-tight">
+              <div className="text-black text-3xl tracking-tight font-playfair italic">
                 {size.name}
               </div>
-              <div className="text-lg text-amber-600">
+              <div className="mt-3 text-lg text-amber-600">
                 Symbol: {size.symbol}
               </div>
             </div>

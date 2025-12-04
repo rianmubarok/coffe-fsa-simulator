@@ -48,10 +48,10 @@ export const DrinkSelection: React.FC<DrinkSelectionProps> = ({
             </div>
 
             <div>
-              <div className="text-black text-3xl tracking-tight">
+              <div className="text-black text-3xl tracking-tight font-playfair italic">
                 {drink.name}
               </div>
-              <div className="text-lg text-amber-600">
+              <div className="mt-3 text-lg text-amber-600">
                 Symbol: {drink.symbol}
               </div>
             </div>
