@@ -24,11 +24,13 @@ export const CoffeeMachine: React.FC = () => {
     selectedDrink,
     selectedSize,
     extras,
+    selectedWater,
+    finalDrinkName,
     step,
     handleDrinkSelect,
     handleSizeSelect,
     handleExtraAdd,
-    handleAddWater,
+    handleWaterSelect,
     handleFinalize,
     handleReset,
   } = useCoffeeMachine();
@@ -71,7 +73,7 @@ export const CoffeeMachine: React.FC = () => {
                 extraOptions={extraOptions}
                 extras={extras}
                 onExtraAdd={handleExtraAdd}
-                onAddWater={handleAddWater}
+                onWaterSelect={handleWaterSelect}
                 isProcessing={isProcessing}
                 onReset={currentState !== "S" ? handleReset : undefined}
               />
@@ -83,6 +85,7 @@ export const CoffeeMachine: React.FC = () => {
                 selectedDrink={selectedDrink}
                 selectedSize={selectedSize}
                 extras={extras}
+                selectedWater={selectedWater}
                 onFinalize={handleFinalize}
                 onReset={handleReset}
               />
@@ -94,6 +97,8 @@ export const CoffeeMachine: React.FC = () => {
                 selectedDrink={selectedDrink}
                 selectedSize={selectedSize}
                 extras={extras}
+                selectedWater={selectedWater}
+                finalDrinkName={finalDrinkName}
                 onReset={handleReset}
               />
             )}

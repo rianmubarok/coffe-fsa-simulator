@@ -7,6 +7,7 @@ interface ConfirmationSelectionProps {
     selectedDrink: Drink | null;
     selectedSize: Size | null;
     extras: Extra[];
+    selectedWater: 'k' | 'l' | null;
     onFinalize: () => void;
     onReset: () => void;
 }
@@ -15,6 +16,7 @@ export const ConfirmationSelection: React.FC<ConfirmationSelectionProps> = ({
     selectedDrink,
     selectedSize,
     extras,
+    selectedWater,
     onFinalize,
     onReset,
 }) => {
@@ -52,6 +54,9 @@ export const ConfirmationSelection: React.FC<ConfirmationSelectionProps> = ({
                                 .join(", ")}
                         </li>
                     )}
+                    {selectedWater && (
+                        <li>• Air: {selectedWater === 'k' ? 'Panas (k)' : 'Dingin (l)'}</li>
+                    )}
                 </ul>
             </div>
 
@@ -61,7 +66,7 @@ export const ConfirmationSelection: React.FC<ConfirmationSelectionProps> = ({
                     className="w-full p-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all transform cursor-pointer"
                 >
                     <ArrowRight className="w-5 h-5" />
-                    Proses
+                    Buat Minuman (m)
                 </button>
 
                 <button

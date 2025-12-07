@@ -1,5 +1,5 @@
 import React from "react";
-import { Play, RotateCcw, ArrowRight } from "lucide-react";
+import { RotateCcw, ArrowRight, Thermometer, Snowflake } from "lucide-react";
 import { Extra } from "../data/types";
 import Image from "next/image";
 
@@ -7,7 +7,7 @@ interface ExtraSelectionProps {
   extraOptions: Extra[];
   extras: Extra[];
   onExtraAdd: (extra: Extra) => void;
-  onAddWater: () => void;
+  onWaterSelect: (waterType: 'k' | 'l') => void;
   isProcessing: boolean;
   onReset?: () => void;
 }
@@ -27,7 +27,7 @@ export const ExtraSelection: React.FC<ExtraSelectionProps> = ({
   extraOptions,
   extras,
   onExtraAdd,
-  onAddWater,
+  onWaterSelect,
   isProcessing,
   onReset,
 }) => {
@@ -65,25 +65,38 @@ export const ExtraSelection: React.FC<ExtraSelectionProps> = ({
       <div className="text-sm text-gray-600 mb-4">
         Extra dipilih: {extras.length}/3
       </div>
-      <div className="space-y-3">
-        <button
-          onClick={onAddWater}
-          disabled={isProcessing}
-          className="w-full p-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all transform disabled:opacity-50 cursor-pointer"
-        >
-          <ArrowRight className="w-5 h-5" />
-          Lanjut (O)
-        </button>
-        {onReset && (
+      
+      <div className="mb-4">
+        <h3 className="text-black mb-3">Pilih Air</h3>
+        <div className="grid grid-cols-2 gap-3">
           <button
-            onClick={onReset}
-            className="w-full p-3 bg-red-100 hover:bg-red-200 text-red-800 rounded-lg transition-all transform flex items-center justify-center gap-2 font-semibold cursor-pointer"
+            onClick={() => onWaterSelect('k')}
+            disabled={isProcessing}
+            className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all transform disabled:opacity-50 cursor-pointer p-3"
           >
-            <RotateCcw className="w-4 h-4" />
-            Reset (0)
+            <Thermometer className="w-5 h-5" />
+            Air Panas (k)
           </button>
-        )}
+          <button
+            onClick={() => onWaterSelect('l')}
+            disabled={isProcessing}
+            className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all transform disabled:opacity-50 cursor-pointer p-3"
+          >
+            <Snowflake className="w-5 h-5" />
+            Air Dingin (l)
+          </button>
+        </div>
       </div>
+
+      {onReset && (
+        <button
+          onClick={onReset}
+          className="w-full p-3 bg-red-100 hover:bg-red-200 text-red-800 rounded-lg transition-all transform flex items-center justify-center gap-2 font-semibold cursor-pointer"
+        >
+          <RotateCcw className="w-4 h-4" />
+          Reset (0)
+        </button>
+      )}
     </div>
   );
 };
