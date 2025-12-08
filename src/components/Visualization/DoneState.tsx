@@ -33,10 +33,9 @@ export const DoneState: React.FC<DoneStateProps> = ({
       <h3 className="text-3xl text-black mb-4 font-playfair italic">
         Minuman Selesai!
       </h3>
-      <p className="text-gray-700 mb-4 text-xl font-semibold">
-        {finalDrinkName || `${selectedDrink?.name} ${selectedSize?.name}`}
+      <p className="text-gray-700 mb-4 text-xl">
+        {finalDrinkName || `${selectedDrink?.name} - Gelas ${selectedSize?.name}`}
       </p>
-      <p className="text-gray-600 text-sm">Siap dinikmati! 🎉</p>
       <button
         onClick={onReset}
         className="w-full p-3 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-lg transition-all transform flex items-center justify-center gap-2 font-semibold cursor-pointer"

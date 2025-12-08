@@ -36,11 +36,11 @@ export const CoffeeMachine: React.FC = () => {
   } = useCoffeeMachine();
 
   return (
-    <div className="min-h-screen bg-[#fcf6ea] p-6">
+    <div className="min-h-screen bg-[#fcf6ea] p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-12">
-          <div className="flex flex-col mb-2 text-5xl text-black tracking-tight">
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-col mb-2 text-3xl sm:text-5xl text-black tracking-tight">
             <h1>Coffe Machine</h1>
             <h1>Finite State Automata</h1>
           </div>

@@ -25,29 +25,29 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({
   return (
     <div className="mb-6">
       <h3 className="text-black mb-3">Pilih Ukuran Gelas</h3>
-      <div className="grid grid-cols-2 gap-3 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         {sizes.map((size) => (
           <button
             key={size.id}
             onClick={() => onSelect(size)}
             className="bg-amber-100 hover:bg-amber-200 rounded-2xl transition-all text-left cursor-pointer flex items-center gap-2 group pr-4"
           >
-            <div className="w-42 h-42 relative flex-shrink-0 overflow-hidden">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 relative flex-shrink-0 overflow-hidden">
               <Image
                 src="/img/gelas.png"
                 alt={size.name}
                 fill
-                className={`object-contain transition-all duration-300 translate-y-8 -translate-x-5 transform group-hover:translate-y-2 ${getSizeScale(
+                className={`object-contain transition-all duration-300 transform sm:group-hover:-translate-y-2 ${getSizeScale(
                   size.name
                 )}`}
               />
             </div>
 
             <div>
-              <div className="text-black text-3xl tracking-tight font-playfair italic">
+              <div className="text-black text-xl sm:text-3xl tracking-tight font-playfair italic">
                 {size.name}
               </div>
-              <div className="mt-3 text-lg text-amber-600">
+              <div className="mt-1 sm:mt-3 text-sm sm:text-lg text-amber-600">
                 Symbol: {size.symbol}
               </div>
             </div>

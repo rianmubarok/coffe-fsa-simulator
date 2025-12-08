@@ -61,9 +61,11 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
               className={`w-16 h-16 rounded-full ${getStateStyle(
                 "S",
                 currentState
-              )} flex flex-col items-center justify-center font-bold text-xs transition-all duration-300`}
+              )} !border-none flex flex-col items-center justify-center font-bold text-xs transition-all duration-300 relative`}
             >
-              <div className="text-center leading-tight">
+              <div className="absolute inset-0 rounded-full border-2 border-black"></div>
+              <div className="absolute inset-1 rounded-full border-2 border-black"></div>
+              <div className="text-center leading-tight relative z-10">
                 {stateLabels["S"]}
               </div>
             </div>
@@ -158,10 +160,10 @@ export const FSADiagram: React.FC<FSADiagramProps> = ({ currentState }) => {
             className={`w-20 h-20 rounded-full ${getStateStyle(
               "Final",
               currentState
-            )} flex flex-col items-center justify-center font-bold text-sm transition-all duration-300 relative`}
+            )} !border-none flex flex-col items-center justify-center font-bold text-sm transition-all duration-300 relative`}
           >
-            <div className="absolute inset-0 rounded-full border-4 border-black"></div>
-            <div className="absolute inset-2 rounded-full border-2 border-black"></div>
+            <div className="absolute inset-0 rounded-full border-2 border-black"></div>
+            <div className="absolute inset-1 rounded-full border-2 border-black"></div>
             <div className="relative z-10 text-center leading-tight">
               {stateLabels["Final"]}
             </div>

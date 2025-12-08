@@ -93,7 +93,7 @@ const generateDrinkName = (
 
   // Tambahkan ukuran
   const sizeName = size.name;
-  drinkName += ` ${sizeName}`;
+  drinkName += ` - Gelas ${sizeName}`;
 
   return drinkName;
 };
@@ -231,8 +231,7 @@ export const useCoffeeMachine = () => {
         `[FSA] State: ${prevState} → ${nextState} (self-loop ↻, input: ${input})`
       );
       addLog(
-        `✓ Menambahkan extra: ${extra.name} (${
-          extras.length + 1
+        `✓ Menambahkan extra: ${extra.name} (${extras.length + 1
         }/3) - Loop di state ${nextState}`
       );
     } else {
@@ -269,7 +268,7 @@ export const useCoffeeMachine = () => {
       selectedSize
     );
     if (tempName) {
-      addLog(`📝 Komposisi: ${tempName}`);
+      addLog(`Komposisi: ${tempName}`);
     }
 
     setStep("confirmation");
@@ -307,12 +306,12 @@ export const useCoffeeMachine = () => {
     );
     setFinalDrinkName(drinkName);
 
-    addLog("⚙️ Memproses minuman...");
+    addLog("Memproses minuman...");
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     addLog(`✓ Minuman selesai dibuat!`);
-    addLog(`🎉 ${drinkName}`);
+    addLog(`${drinkName}`);
     addLog("--- SELAMAT MENIKMATI ---");
     setIsProcessing(false);
     setStep("done");
@@ -322,7 +321,7 @@ export const useCoffeeMachine = () => {
     // Final state tidak bisa reset dengan input 0 (tidak ada transisi 0 dari Final)
     // Tapi bisa langsung reset ke S untuk membuat minuman baru
     if (currentState === "Final") {
-      addLog("🔄 Membuat minuman baru: Kembali ke state Start (S)");
+      addLog("Membuat minuman baru: Kembali ke state Start (S)");
       setCurrentState("S");
       setInputSequence([]);
       setGrammar("");
@@ -345,7 +344,7 @@ export const useCoffeeMachine = () => {
       addLog(
         `[FSA] State: ${prevState} → ${nextState} (input: ${input} - reset)`
       );
-      addLog("🔄 Reset: Kembali ke state Start (S)");
+      addLog("Reset: Kembali ke state Start (S)");
       const resetSeq = [...inputSequence, input];
       setInputSequence(resetSeq);
       setGrammar((prev) => prev + input);
