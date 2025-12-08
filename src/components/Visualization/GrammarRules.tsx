@@ -23,61 +23,22 @@ export const GrammarRules: React.FC = () => {
           <div className="mt-2">
             <strong>P = {"{"}</strong>
           </div>
-          <div className="ml-2">
-            S → aA | bB | cC | 0,
-          </div>
-          <div className="ml-2">
-            A → dD | eE | fF | 0,
-          </div>
-          <div className="ml-2">
-            B → dD | eE | fF | 0,
-          </div>
-          <div className="ml-2">
-            C → dD | eE | fF | 0,
-          </div>
-          <div className="ml-2">
-            D → gG | hH | iI | jJ | kK | lL | 0,
-          </div>
-          <div className="ml-2">
-            E → gG | hH | iI | jJ | kK | lL | 0,
-          </div>
-          <div className="ml-2">
-            F → gG | hH | iI | jJ | kK | lL | 0,
-          </div>
-          <div className="ml-2">
-            G → gG | hH | iI | jJ | kK | lL | 0,
-          </div>
-          <div className="ml-2">
-            H → gG | hH | iI | jJ | kK | lL | 0,
-          </div>
-          <div className="ml-2">
-            I → gG | hH | iI | jJ | kK | lL | 0,
-          </div>
-          <div className="ml-2">
-            J → gG | hH | iI | jJ | kK | lL | 0,
-          </div>
-          <div className="ml-2">
-            K → mFinal | 0,
-          </div>
-          <div className="ml-2">
-            L → mFinal | 0
-          </div>
+          <div className="ml-2">S → aA | bB | cC | 0,</div>
+          <div className="ml-2">A → dD | eE | fF | 0,</div>
+          <div className="ml-2">B → dD | eE | fF | 0,</div>
+          <div className="ml-2">C → dD | eE | fF | 0,</div>
+          <div className="ml-2">D → gG | hH | iI | jJ | kK | lL | 0,</div>
+          <div className="ml-2">E → gG | hH | iI | jJ | kK | lL | 0,</div>
+          <div className="ml-2">F → gG | hH | iI | jJ | kK | lL | 0,</div>
+          <div className="ml-2">G → gG | hH | iI | jJ | kK | lL | 0,</div>
+          <div className="ml-2">H → gG | hH | iI | jJ | kK | lL | 0,</div>
+          <div className="ml-2">I → gG | hH | iI | jJ | kK | lL | 0,</div>
+          <div className="ml-2">J → gG | hH | iI | jJ | kK | lL | 0,</div>
+          <div className="ml-2">K → mFinal | 0,</div>
+          <div className="ml-2">L → mFinal | 0</div>
           <div>
             <strong>{"}"}</strong>
           </div>
-          <div>S → aA | bB | cC | 0</div>
-          <div>A → dD | eE | fF | 0</div>
-          <div>B → dD | eE | fF | 0</div>
-          <div>C → dD | eE | fF | 0</div>
-          <div>D → gG | hH | iI | jJ | kK | lL | 0</div>
-          <div>E → gG | hH | iI | jJ | kK | lL | 0</div>
-          <div>F → gG | hH | iI | jJ | kK | lL | 0</div>
-          <div>G → gG | hH | iI | jJ | kK | lL | 0</div>
-          <div>H → gG | hH | iI | jJ | kK | lL | 0</div>
-          <div>I → gG | hH | iI | jJ | kK | lL | 0</div>
-          <div>J → gG | hH | iI | jJ | kK | lL | 0</div>
-          <div>K → mFinal | 0</div>
-          <div>L → mFinal | 0</div>
           <div className="mt-2 text-gray-600 text-[10px]">
             <strong>Catatan:</strong> Aturan G, H, I, J memiliki self-loop (gG,
             hH, iI, jJ) yang memungkinkan extra dipilih berulang kali. Batasan
