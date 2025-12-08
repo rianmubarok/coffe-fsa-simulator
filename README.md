@@ -148,27 +148,31 @@ Dimana:
 
 ### Grammar (CFG 4-Tuple)
 
-**G = (V, Σ, R, S)**
+**G = (V_T, V_N, S, P)**
 
-- **V (Non-Terminal)**: {S, A, B, C, D, E, F, G, H, I, J, K, L, Final}
-- **Σ (Terminal)**: {a, b, c, d, e, f, g, h, i, j, k, l, m, 0}
+Dimana:
 
-**Aturan Produksi:**
+- **V_T (Terminal Symbols)**: {a, b, c, d, e, f, g, h, i, j, k, l, m, 0}
+- **V_N (Non-Terminal Symbols)**: {S, A, B, C, D, E, F, G, H, I, J, K, L, Final}
+- **S (Start Symbol)**: S
+- **P (Set of Productions)**:
 
 ```
-S → aA | bB | cC | 0
-A → dD | eE | fF | 0
-B → dD | eE | fF | 0
-C → dD | eE | fF | 0
-D → gG | hH | iI | jJ | kK | lL | 0
-E → gG | hH | iI | jJ | kK | lL | 0
-F → gG | hH | iI | jJ | kK | lL | 0
-G → gG | hH | iI | jJ | kK | lL | 0
-H → gG | hH | iI | jJ | kK | lL | 0
-I → gG | hH | iI | jJ | kK | lL | 0
-J → gG | hH | iI | jJ | kK | lL | 0
-K → mFinal | 0
-L → mFinal | 0
+P = {
+  S → aA | bB | cC | 0,
+  A → dD | eE | fF | 0,
+  B → dD | eE | fF | 0,
+  C → dD | eE | fF | 0,
+  D → gG | hH | iI | jJ | kK | lL | 0,
+  E → gG | hH | iI | jJ | kK | lL | 0,
+  F → gG | hH | iI | jJ | kK | lL | 0,
+  G → gG | hH | iI | jJ | kK | lL | 0,
+  H → gG | hH | iI | jJ | kK | lL | 0,
+  I → gG | hH | iI | jJ | kK | lL | 0,
+  J → gG | hH | iI | jJ | kK | lL | 0,
+  K → mFinal | 0,
+  L → mFinal | 0
+}
 ```
 
 **Catatan**: Aturan G, H, I, J memiliki self-loop (gG, hH, iI, jJ) yang memungkinkan extra dipilih berulang kali. Batasan maksimal 3 extra diimplementasikan di level aplikasi.
